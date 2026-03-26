@@ -3,34 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Katalog Produk Jaify</title>
+<title>Katalog Produk JAIFY</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
-:root { --primary:#0f172a; --secondary:#f97316; --bg:#f8fafc; }
-
+:root{--primary:#0f172a;--secondary:#f97316;--bg:#f8fafc;}
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:var(--bg);color:#334155;}
 
 /* HEADER */
 header{
     background:#fff;
-    padding:1.2rem 5%;
+    padding:1rem;
     text-align:center;
-    box-shadow:0 2px 10px rgba(0,0,0,0.08);
-    position:sticky;
-    top:0;
-    z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    position:sticky;top:0;z-index:1000;
 }
-.logo{
-    font-weight:700;
-    font-size:1.6rem;
-    color:var(--primary);
-    text-decoration:none;
-}
-.logo span{color:var(--secondary);}
+.logo img{height:40px;}
 
 /* HERO */
 .hero{
@@ -42,15 +33,12 @@ header{
     display:flex;
     align-items:center;
     justify-content:center;
-    color:#fff;
-    text-align:center;
+    color:white;
 }
-.hero h1{font-size:2.2rem;font-weight:700;}
-
-/* CONTAINER */
-.container{padding:2rem 5%;max-width:1400px;margin:auto;}
+.hero h1{font-size:2rem;}
 
 /* GRID */
+.container{padding:2rem;}
 #productGrid{
     display:grid;
     grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
@@ -60,76 +48,51 @@ header{
 /* CARD */
 .product-card{
     background:#fff;
-    border-radius:18px;
+    border-radius:15px;
     overflow:hidden;
     box-shadow:0 5px 15px rgba(0,0,0,0.05);
-    transition:0.3s;
 }
-.product-card:hover{transform:translateY(-5px);}
-
-.media-box{height:200px;overflow:hidden;}
-.media-box img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:0.4s;
-}
-.product-card:hover img{transform:scale(1.1);}
-
+.media-box{height:200px;}
+.media-box img{width:100%;height:100%;object-fit:cover;}
 .info-p{padding:15px;text-align:center;}
-.info-p h3{
-    font-size:0.95rem;
-    margin-bottom:10px;
-    color:var(--primary);
-}
-
-/* BUTTON */
+.info-p h3{font-size:1rem;margin-bottom:10px;}
 .btn-detail{
     background:var(--primary);
-    color:#fff;
+    color:white;
     padding:10px;
     border:none;
     border-radius:8px;
     width:100%;
     cursor:pointer;
-    transition:0.3s;
 }
-.btn-detail:hover{background:#1e293b;}
 
 /* MODAL */
 .modal{
     display:none;
     position:fixed;
-    width:100%;
-    height:100%;
+    width:100%;height:100%;
     background:rgba(0,0,0,0.8);
     justify-content:center;
     align-items:center;
 }
 .modal-content{
-    background:#fff;
+    background:white;
     padding:20px;
     border-radius:15px;
     width:90%;
     max-width:400px;
 }
-.close-modal{
-    float:right;
-    cursor:pointer;
-    font-size:22px;
-}
-
-/* WA BUTTON */
+.close-modal{float:right;font-size:20px;cursor:pointer;}
+.price-tag{color:var(--secondary);font-weight:700;}
 .btn-wa{
-    display:block;
     margin-top:15px;
+    display:block;
     background:#25d366;
-    color:#fff;
-    padding:12px;
+    color:white;
+    padding:10px;
     text-align:center;
     border-radius:8px;
     text-decoration:none;
-    font-weight:600;
 }
 
 /* FOOTER */
@@ -140,21 +103,15 @@ footer{
     text-align:center;
     padding:20px;
 }
-
-/* MOBILE */
-@media(max-width:600px){
-    .hero{height:200px;}
-    .hero h1{font-size:1.5rem;}
-}
 </style>
 </head>
 
 <body>
 
 <header>
-    <a href="#" class="logo-wrap">
-        <img src="https://res.cloudinary.com/dmawwoupq/image/upload/v1774363634/kjguapqouo1vrtoqr4nh.png" alt="Jaify Logo">
-    </a>
+    <div class="logo">
+        <img src="https://www.jaify.co.id/assets/img/logo.png">
+    </div>
 </header>
 
 <section class="hero">
@@ -162,11 +119,7 @@ footer{
 </section>
 
 <div class="container">
-    <div id="productGrid">
-        <div style="text-align:center;grid-column:1/-1;padding:50px;">
-            Memuat produk...
-        </div>
-    </div>
+    <div id="productGrid">Loading...</div>
 </div>
 
 <!-- MODAL -->
@@ -174,29 +127,44 @@ footer{
 <div class="modal-content">
     <span class="close-modal" onclick="closeModal()">&times;</span>
     <h2 id="modalTitle"></h2>
-    <p id="modalPrice"></p>
+    <p class="price-tag" id="modalPrice"></p>
     <p id="modalDesc"></p>
-    <a id="modalWA" class="btn-wa" target="_blank">
-        <i class="fab fa-whatsapp"></i> Tanya Admin
-    </a>
+    <a id="modalWA" class="btn-wa" target="_blank">Chat WhatsApp</a>
 </div>
 </div>
 
 <footer>
     <p>JAIFY STORE</p>
-    <p>© 2026 Jaify</p>
+    <p>© 2026 jaify</p>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 
 <script>
-const sheet_url='https://docs.google.com/spreadsheets/d/e/2PACX-1vQV0MmEKZYKPOUjCzwA56dHsxUMXxoq35W3IbynQB7IntJB_D3rypSVVFTQJFFjJEVSV_ePUk3aWyCu/pub?output=csv';
+// 🔥 CSV TANAM (EDIT PRODUK DI SINI)
+const csvData = `NAMA,HARGA,DESKRIPSI,FOTO1
+Sepatu Sneakers Jaify,150000,Sepatu pria nyaman,sneakers1.jpg
+Tas Wanita Elegan,175000,Tas wanita modern,bag1.jpg
+Jam Tangan Pria,220000,Jam elegan,watch1.jpg
+Kacamata Fashion,85000,Kacamata kekinian,glasses1.jpg
+Topi Baseball,65000,Topi casual,cap1.jpg
+Sepatu Wanita Trendy,180000,Sepatu wanita ringan,shoes2.jpg
+Tas Selempang Pria,140000,Tas pria simpel,bag2.jpg
+Jam Wanita Gold,200000,Jam wanita elegan,watch2.jpg
+Sandal Pria Casual,90000,Sandal santai,sandal1.jpg
+Kacamata Hitam Pria,95000,Kacamata stylish,glasses2.jpg
+`;
 
 let localData=[];
 
+function formatUrl(url){
+    if(!url) return 'https://via.placeholder.com/400x300?text=JAIFY';
+    if(!url.startsWith('http')) return 'img/'+url;
+    return url;
+}
+
 function init(){
-    Papa.parse(sheet_url,{
-        download:true,
+    Papa.parse(csvData,{
         header:true,
         complete:(res)=>{
             localData=res.data.filter(r=>r.NAMA);
@@ -207,16 +175,10 @@ function init(){
 
 function displayProducts(data){
     const grid=document.getElementById('productGrid');
-
-    if(data.length===0){
-        grid.innerHTML='<div style="text-align:center;padding:50px;">Belum ada produk</div>';
-        return;
-    }
-
     grid.innerHTML=data.map((p,i)=>`
         <div class="product-card">
             <div class="media-box">
-                <img src="${p.FOTO1 || 'https://via.placeholder.com/400x300?text=JAIFY'}">
+                <img src="${formatUrl(p.FOTO1)}">
             </div>
             <div class="info-p">
                 <h3>${p.NAMA}</h3>
@@ -230,13 +192,12 @@ function displayProducts(data){
 
 function showDetail(i){
     let p=localData[i];
-
     document.getElementById('modalTitle').innerText=p.NAMA;
-    document.getElementById('modalPrice').innerText=p.HARGA || 'Hubungi Admin';
-    document.getElementById('modalDesc').innerText=p.DESKRIPSI || '-';
+    document.getElementById('modalPrice').innerText='Rp '+p.HARGA;
+    document.getElementById('modalDesc').innerText=p.DESKRIPSI;
 
     document.getElementById('modalWA').href=
-    `https://wa.me/6282211494040?text=Halo saya tertarik produk ${p.NAMA}`;
+    `https://wa.me/6282211494040?text=Halo saya tertarik ${p.NAMA}`;
 
     document.getElementById('detailModal').style.display='flex';
 }
